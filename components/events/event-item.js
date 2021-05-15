@@ -17,9 +17,9 @@ function EventItem(props) {
     <div className={classes.title}>
        {title.length < 6 ? <h2>{title}</h2> : <h2>{symbol}</h2>}
     </div>
-    <ul className={classes.categoryContain}>
+    {/* <ul className={classes.categoryContain}>
         {tags.slice(0,3).map((y) => <li key={y}>{y}</li>)}
-    </ul>
+    </ul> */}
     <div>
     <Button link={exploreLink}>Details</Button>
     </div>
