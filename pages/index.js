@@ -6,7 +6,7 @@ function HomePage() {
     ]
     return(
         <div>
-           <h1>Hello</h1>
+           {/* <h1>Hello</h1>
            <ul>
 
         {routes.map((route) => (
@@ -17,7 +17,10 @@ function HomePage() {
             </li>
         ))
         }
-</ul>
+</ul> */}
+        <div>
+            Hello There
+        </div>
         </div>
     )
 }

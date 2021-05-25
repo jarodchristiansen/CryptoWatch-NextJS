@@ -1,28 +1,27 @@
-import Link from 'next/link';
-
 import classes from './event-item.module.css';
 import Button from '../ui/button';
+import CardChart from './card-chart';
 
 function EventItem(props) {
-    const {id, title, imageUrl, symbol, category, tags} = props;
-
+    const {title, image, id, symbol, description, price} = props;
+    // console.log(price)
     // const humanReadableDate = new Date(date).toLocaleDateString('en-US', {day: 'numeric', month:'long', year:'numeric'})
     
     // const fomrattedAddress = location.replace(', ', '\n')
     const exploreLink = `/assets/${symbol}`;
     return (
     <li className={classes.item}>
-    <img className={classes.img} src={imageUrl} alt=''/>
-    <div className={classes.content}>
-    <div className={classes.title}>
-       {title.length < 6 ? <h2>{title}</h2> : <h2>{symbol}</h2>}
+    <div className={classes.imgRow}>
+    <img className={classes.img} src={image} alt=''/>
+    <div className={classes.column}>
+    <h3 className={classes.title}>{title}  - {symbol}</h3>
+        <Button link={exploreLink}>
+            <span>Explore</span>
+        </Button>
     </div>
-    {/* <ul className={classes.categoryContain}>
-        {tags.slice(0,3).map((y) => <li key={y}>{y}</li>)}
-    </ul> */}
-    <div>
-    <Button link={exploreLink}>Details</Button>
     </div>
+    <div className={classes.chart}>
+        <CardChart price={price} symbol={symbol}/>
     </div>
     </li>
     )

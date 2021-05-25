@@ -1,53 +1,32 @@
 .item {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px 12px 2px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  overflow: hidden;
   background-color: white;
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
+  margin: 2rem;
   gap: 1rem;
-  height: 11rem;
-}
-
-.item img {
-  object-fit:cover;
-
-}
-
-.content {
-  width: 100%;
-  padding: 0 1rem;
+  width: 70vw;
+  height: 50vh;
+  display: inline-block;
+  vertical-align: top;
   text-align: center;
 }
-.categoryContain {
-  font-size: .7rem;
-  padding-bottom: 1.5rem;
+
+.img {
+  height: 5vh;
+  margin: 20px 20px 0 20px;
 }
+.column {
+  margin: 0 0 5vh 0;
+}
+.imgRow {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
 .content h2 {
   margin: 0.5rem 0;
 }
-.title {
-  display: flex;
-  flex-direction: row;
-  font-size: 1rem;
-  padding-right: 2rem;
-}
-
-.date,
-.address {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.date svg,
-.address svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #666666;
-}
-
 
 .actions {
   display: flex;
@@ -77,23 +56,27 @@
 
 @media (min-width: 768px) {
   .item {
-    flex-direction: row;
+    width: 27.5vw;
+    height: 55vh;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
   }
 
   .item img {
-    width: 40%;
-    height: 14rem;
+    height: 10vh;
+    margin: 1vw 3vw 1vw 1vw;
   }
-
+  .chart {
+    width: 90%;
+    height: 50vh;
+  }
   .content {
     width: 60%;
     padding: 0;
     text-align: left;
   }
 
-  .content address {
-    margin: 1rem 0;
-  }
   .content h2 {
     margin: 1rem 0;
   }
