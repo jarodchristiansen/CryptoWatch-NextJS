@@ -29,6 +29,6 @@ export async function getAllEvents() {
  
  export async function getFeaturedEvents() {
      const allEvents = await getAllEvents();
-     return allEvents.splice(0,30).filter((event) => event.id);
+     return allEvents.splice(0,5).filter((event) => event.id);
    }
    

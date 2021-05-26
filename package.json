@@ -12,6 +12,7 @@
     "next": "10.0.6",
     "react": "17.0.1",
     "react-chartjs-2": "^3.0.3",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-tradingview-embed": "^1.0.2"
   }
 }

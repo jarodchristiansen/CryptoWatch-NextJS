@@ -5,18 +5,28 @@ import {Line} from 'react-chartjs-2';
 function CardChart(props) {
     const { price, symbol} = props;
     const [chartData, setChartData] = useState();
-    const [labels, setLabels] = useState([])
+    const [labels, setLabels] = useState();
+    const [fibs, setFibs] = useState();
     let labelHolder = [];
     let chartHolder = [];
 
 function processPrice(price) {
     if(price) {
-    price.splice(0).map((y) =>  {
+    price.splice(0).slice(-30).map((y) =>  {
         labelHolder.push(y.datetime)
         chartHolder.push(y.close)      
     })
     setChartData(chartHolder)
     setLabels(labelHolder)
+    let priceMax = Math.max(...chartHolder);
+    let priceMin = Math.min(...chartHolder);
+    let diff = priceMax - priceMin;
+    let level1 = priceMax - (0.236 * diff)
+    let level2 = priceMax - (0.382 * diff)
+    let level3 = priceMax - (0.500 * diff)
+    let level4 = priceMax - (0.618 * diff)
+    setFibs([level1, level2, level3, level4])
+    //Fib levels need to be level2 -> level1 | leve3 -> level2 | level4 -> level3
  } else {
      setChartData()
      setLabels()
@@ -50,6 +60,12 @@ const data = {
         pointRadius: 1,
         pointHitRadius: 10,
         data: chartData
+      },
+      {
+        label: 'fibs',
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        fill: true,
+        data: fibs
       },
     ]
   };

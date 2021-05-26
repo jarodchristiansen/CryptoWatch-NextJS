@@ -1,0 +1,23 @@
+.columnHolder {
+    display: flex;
+    flex-direction: row;
+    width: 90%; 
+    justify-content: center;
+}
+
+.columnLeft {
+    background-color: white;
+    width: 50%;
+}
+.columnRight {
+    background-color:black;
+    width: 50%;
+}
+
+.landingList {
+    color:white;
+    list-style:circle;
+}
+.landingItem {
+    margin: 10px;
+}

@@ -31,3 +31,9 @@ ul {
   margin: auto;
   text-align: center;
 }
+.tradingview-widget-copyright {
+  display: none;
+}
+.screener {
+  max-width: 100%;
+}
