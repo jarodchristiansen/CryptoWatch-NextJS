@@ -64,22 +64,7 @@ function HomePage() {
                 "locale": "en"
             }}/>
             </div>
-           {/* <h1>Hello</h1>
-           <ul>
 
-        {routes.map((route) => (
-            <li key={route.id}>
-                <Link href={{
-                    pathname: `${route.id}`,
-                }}>{route.name}</Link>
-            </li>
-        ))
-        }
-</ul> */}
-
-        <div>
-            Hello There
-        </div>
         </div>
     )
 }

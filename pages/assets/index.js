@@ -1,6 +1,6 @@
 import {useState} from 'react';
 // import { getEventById, getFeaturedEvents, getEventsById } from '../../dummy-data';
-import { getFeaturedEvents } from '../../helpers/api-util';
+import { getFeaturedEvents, getSearchEvents } from '../../helpers/api-util';
 import EventList from '../../components/events/event-list';
 
 function AssetsPage(props) {
@@ -9,13 +9,22 @@ function AssetsPage(props) {
     // const eventsById = getEventsById('BTC');
     const [events, setEvents] = useState([])
 
+
+  
+async function searchQuery(e) {
+    e.preventDefault()
+    let returnedEvents = await getSearchEvents(e.target.name.value.toUpperCase())
+    setEvents(returnedEvents)
+}
+
+
     return (
     <div>
-      <label htmlFor="name">Name</label>
-      <input id="name" name="name" type="text" autoComplete="name" required />
-      <button type="submit">Register</button>
-    
-     <EventList items={props.events}/>
+      <form onSubmit={searchQuery}>
+      <input id="name" type="text" autoComplete="name" required />
+      <button type="submit">Search</button>
+    </form>
+     <EventList items={events.length > 1 ? events : props.events}/>
     </div>
     )
 }
