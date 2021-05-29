@@ -1,0 +1,10 @@
+.tweetNameRow {
+    display: flex;
+    flex-direction: row;
+}
+.profilePic {
+    max-height: 10vh;
+}
+.tweetBody {
+    font-size: 0.7rem;
+}

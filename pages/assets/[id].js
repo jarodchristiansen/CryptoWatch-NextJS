@@ -16,7 +16,7 @@ function loadTradingView(id) {
         <div>
             <h1>Hello Assets Details</h1>
             {id}
-            <SocialChart />
+            <SocialChart id={id}/>
             <TradingViewEmbed
               widgetType={widgetType.ADVANCED_CHART}
               widgetConfig={{

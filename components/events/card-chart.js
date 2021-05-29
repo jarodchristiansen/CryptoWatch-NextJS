@@ -4,9 +4,10 @@ import * as ChartAnnotation from 'chartjs-plugin-annotation'
 import classes from './card-chart.module.css';
 
 function CardChart(props) {
-    const { price, symbol, time} = props;
+    const { price, symbol} = props;
     const [chartData, setChartData] = useState();
     const [labels, setLabels] = useState();
+    const [time, setTimeScale] = useState(90);
     const [fib1, setFib1] = useState();
     const [fib2, setFib2] = useState();
     const [fib3, setFib3] = useState();
@@ -15,14 +16,20 @@ function CardChart(props) {
     let chartHolder = [];
     let day;
 
-function processPrice(price, time) {
-    if(price) {
 
-    price.splice(0).slice(time || -180).map((y) =>  {
+function timeScale(t) {
+  setTimeScale(t);
+}
+
+
+function processPrice(price) {
+    if(price) {
+    console.log(time)
+    price.splice(0).slice(time).map((y) =>  {
         labelHolder.push(y.datetime)
         chartHolder.push(y.close)      
     })
-    
+
     setChartData(chartHolder)
     setLabels(labelHolder)
     let priceMax = Math.max(...chartHolder);
@@ -32,10 +39,10 @@ function processPrice(price, time) {
     let level2 = priceMax - (0.382 * diff)
     let level3 = priceMax - (0.500 * diff)
     let level4 = priceMax - (0.618 * diff)
-    setFib1(new Array(180).fill(level1).flat());
-    setFib2(new Array(180).fill(level2).flat());
-    setFib3(new Array(180).fill(level3).flat());
-    setFib4(new Array(180).fill(level4).flat());
+    setFib1(new Array(time).fill(level1).flat());
+    setFib2(new Array(time).fill(level2).flat());
+    setFib3(new Array(time).fill(level3).flat());
+    setFib4(new Array(time).fill(level4).flat());
     //Fib levels need to be level2 -> level1 | leve3 -> level2 | level4 -> level3
  } else {
      setChartData()
@@ -45,8 +52,8 @@ function processPrice(price, time) {
 
 
 useEffect(() => {
-    processPrice(price, time)
-}, [])
+    processPrice(price);
+}, [time])
 
 
 const data2 = {
@@ -113,6 +120,13 @@ const data2 = {
     return ( 
 
         <div className={classes.chart}>
+          
+        <div className={classes.timeScale}>
+        <button onClick={() => timeScale(7)}>7D</button>
+        <button onClick={() => timeScale(14)}>14D</button>
+        <button onClick={() => timeScale(30)}>30D</button>
+        <button onClick={() => timeScale(90)}>90D</button>
+        </div>
           {time}
           <Bar data={data2} 
           height={250}
