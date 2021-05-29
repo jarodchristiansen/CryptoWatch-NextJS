@@ -1,3 +1,4 @@
 .chart {
+    overflow: hidden;
     width: 100%;
 }

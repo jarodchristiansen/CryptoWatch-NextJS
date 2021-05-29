@@ -5,10 +5,11 @@
   margin: 2rem;
   gap: 1rem;
   width: 70vw;
-  height: 50vh;
+  height: 53vh;
   display: inline-block;
   vertical-align: top;
   text-align: center;
+  overflow: hidden;
 }
 
 .img {
@@ -57,7 +58,7 @@
 @media (min-width: 768px) {
   .item {
     width: 27.5vw;
-    height: 55vh;
+    height: 67vh;
     display: inline-block;
     vertical-align: top;
     text-align: center;
@@ -84,5 +85,8 @@
   .actions {
     flex-direction: row;
     justify-content: flex-end;
+  }
+  .timeScale {
+    margin-top: 2.5vh;
   }
 }

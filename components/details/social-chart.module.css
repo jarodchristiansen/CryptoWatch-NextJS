@@ -1,0 +1,9 @@
+.chartContain {
+    display: flex;
+    flex-direction: row;
+    background: rgb(61, 61, 61);
+}
+.socialHeader {
+    margin: 50px;
+    color: white;
+}
