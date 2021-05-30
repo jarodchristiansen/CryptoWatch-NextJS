@@ -8,21 +8,19 @@ function AssetDetails() {
     let id = router.query.id
     console.log(router.query)
 
-function loadTradingView(id) {
-
-}  
-
     return (
         <div>
-            <h1>Hello Assets Details</h1>
             {id}
+            <div className="socialBar">
             <SocialChart id={id}/>
+            </div>
+            <div className="priceChart">
             <TradingViewEmbed
               widgetType={widgetType.ADVANCED_CHART}
               widgetConfig={{
                 interval: "1D",
                 colorTheme: "dark",
-                width: "100%",
+                width: "95%",
                 symbol: id + "USD",
                 studies: [
                   "MACD@tv-basicstudies",
@@ -31,7 +29,7 @@ function loadTradingView(id) {
                 ]
               }}
             />
-
+          </div>
         </div>
     )
 }

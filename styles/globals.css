@@ -37,3 +37,9 @@ ul {
 .screener {
   max-width: 100%;
 }
+.socialBar {
+  margin-bottom: 5vh;
+}
+.priceChart {
+  margin-left: 3.5%;
+}

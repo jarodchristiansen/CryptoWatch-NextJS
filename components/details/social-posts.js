@@ -19,7 +19,7 @@ function SocialPosts(props) {
   const id = props.id;
   let key = '688o9wuzvzst3uybpg6eh';
   const fetcher = url => fetch(url).then(r => r.json());
-  const { data, error } = useSWR(`https://api.lunarcrush.com/v2?data=feeds&key=688o9wuzvzst3uybpg6eh&symbol=${id}&limit=10&sources=twitter`, fetcher)
+  const { data, error } = useSWR(`https://api.lunarcrush.com/v2?data=feeds&key=688o9wuzvzst3uybpg6eh&symbol=${id}&limit=5&sources=twitter`, fetcher)
   
 
   if(data) {
@@ -41,11 +41,9 @@ function SocialPosts(props) {
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
+    <div>
   <div className={classes.social1}>
-    {/* <Bar data={data2} 
-          height={200}
-          /> */}
-    <ul>
+    <ul className={classes.socialList}>
     {responseData.map((y) => {
     //   return <li key={y.time}>
     //       {y.display_name}
@@ -63,6 +61,7 @@ function SocialPosts(props) {
     />
     })}
     </ul>
+  </div>
   </div>
   )
 }

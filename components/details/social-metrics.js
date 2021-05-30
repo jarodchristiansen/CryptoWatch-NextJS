@@ -94,15 +94,18 @@ function SocialMetrics(props) {
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
+    <div>
+    <h1>Social Share Metrics</h1>
   <div className={classes.social1}>
     <Bar data={data2} 
-         height={windowWidth > 600 ? windowHeight * 0.5 : windowHeight}
+         height={windowHeight > 600 ? windowHeight * 0.3 : windowHeight}
           />
     {/* <ul>
     {socialGlobalArray.map((y) => {
       return <li key={y}>{y}</li>
     })}
     </ul> */}
+  </div>
   </div>
   )
 }
