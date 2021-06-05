@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
     "chart.js": "^3.3.0",
     "chartjs-plugin-annotation": "^1.0.1",
     "fetch": "^1.1.0",

@@ -20,10 +20,12 @@ async function searchQuery(e) {
 
     return (
     <div>
+    <div className={"search"}>
       <form onSubmit={searchQuery}>
       <input id="name" type="text" autoComplete="name" required />
       <button type="submit">Search</button>
     </form>
+    </div>
      <EventList items={events.length > 1 ? events : props.events}/>
     </div>
     )

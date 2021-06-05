@@ -19,12 +19,12 @@ function EventItem(props) {
     <div className={classes.column}>
     <h3 className={classes.title}>{title}  - {symbol}</h3>
         <Button link={exploreLink}>
-            <span>Explore</span>
+            <span className={classes.explore}>Explore</span>
         </Button>
     </div>
     </div>
     <div className={classes.chart}>
-        <CardChart price={price} symbol={symbol}/>
+        <CardChart price={price} time_scale={90} symbol={symbol}/>
     </div>
     </li>
     )

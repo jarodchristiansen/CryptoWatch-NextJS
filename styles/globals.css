@@ -43,3 +43,8 @@ ul {
 .priceChart {
   margin-left: 3.5%;
 }
+.search {
+  float: right;
+  display: inline-block;
+  margin: 1vh 0 0 80vw;
+}

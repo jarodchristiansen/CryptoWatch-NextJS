@@ -17,12 +17,16 @@
   margin: 20px 20px 0 20px;
 }
 .column {
-  margin: 0 0 5vh 0;
+  margin: 1vh 0 0 1vw;
 }
 .imgRow {
   display: flex;
   flex-direction: row;
   overflow: hidden;
+}
+
+.explore {
+  padding: 30px;
 }
 
 .content h2 {
@@ -58,7 +62,7 @@
 @media (min-width: 768px) {
   .item {
     width: 27.5vw;
-    height: 67vh;
+    height: 69vh;
     display: inline-block;
     vertical-align: top;
     text-align: center;
