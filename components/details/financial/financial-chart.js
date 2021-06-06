@@ -2,8 +2,11 @@ import Link from 'next/link'
 import fetch from 'unfetch'
 import {useState, useEffect} from 'react';
 import {Line, Bar} from 'react-chartjs-2';
+import FinancialData from './financial-data';
 
 import useSWR from 'swr'
+
+
 
 function FinancialChart(props) {
   let responseData;
@@ -13,6 +16,9 @@ function FinancialChart(props) {
   let closes = [];
   let percentChange = [];
   let maxSupply = '';
+  let oneDay = '';
+  let sevenDay = '';
+  let thirtyDay = '';
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const id = props.id;
@@ -29,6 +35,9 @@ function FinancialChart(props) {
   responseData = data.data[0].timeSeries;
 //   console.log(responseData)
   maxSupply = data.data[0].max_supply;
+  oneDay = data.data[0].percent_change_24h;
+  sevenDay = data.data[0].percent_change_7d;
+  thirtyDay = data.data[0].percent_change_30d;
   console.log(data.data)
     responseData.map((y) => {
     volatility.push(((y.volatility * 10) * y.close));
@@ -100,7 +109,9 @@ function FinancialChart(props) {
   return (
     <div>
     <h1>Financial Metrics</h1>
-    {'Max Supply:  ' + maxSupply}
+    <div>
+      <FinancialData supply={maxSupply} one={oneDay} seven={sevenDay} thirty={thirtyDay}/>
+    </div>
   <div className={'social1'}>
     <Bar data={data2} 
          height={windowHeight > 600 ? windowHeight * 0.3 : windowHeight}

@@ -19,13 +19,12 @@ function CardChart(props) {
     let day;
 
 async function scaleTime(timeScale, symbol) {
-  await setTimeScale(timeScale)
+  setTimeScale(timeScale)
   let response = await getSearchEvents(symbol);
 
   chartHolder = [];
   labelHolder = [];
   processPrice(response[0].price, timeScale)
-  console.log(response[0].price[0], 'time:  ' + timeScale)
 }
 
 
@@ -58,7 +57,8 @@ function processPrice(price, timeScale) {
 
 
 useEffect(() => {
-    processPrice(price, time);
+    scaleTime(time_scale, symbol)
+    // processPrice(price, time);
 }, [price])
 
 
