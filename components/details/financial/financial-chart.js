@@ -5,7 +5,7 @@ import {Line, Bar} from 'react-chartjs-2';
 import FinancialData from './financial-data';
 
 import useSWR from 'swr'
-
+import classes from './financial-chart.module.css';
 
 
 function FinancialChart(props) {
@@ -109,7 +109,7 @@ function FinancialChart(props) {
   return (
     <div>
     <h1>Financial Metrics</h1>
-    <div>
+    <div className={classes.dataHolder}>
       <FinancialData supply={maxSupply} one={oneDay} seven={sevenDay} thirty={thirtyDay}/>
     </div>
   <div className={'social1'}>
